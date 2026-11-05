@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <!-- Card frame for border-image: outer rule, inner rule with notched corners, brass dots. Slice at 24. -->
+  <g fill="none" stroke="#B08A45">
+    <rect x="3" y="3" width="114" height="114" stroke-width="1.2"/>
+    <path stroke-width="1" d="M20 9H100A11 11 0 0 0 111 20V100A11 11 0 0 0 100 111H20A11 11 0 0 0 9 100V20A11 11 0 0 0 20 9Z"/>
+  </g>
+  <g fill="#B08A45">
+    <circle cx="9" cy="9" r="2.4"/>
+    <circle cx="111" cy="9" r="2.4"/>
+    <circle cx="111" cy="111" r="2.4"/>
+    <circle cx="9" cy="111" r="2.4"/>
+  </g>
+</svg>

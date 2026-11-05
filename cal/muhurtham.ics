@@ -1,0 +1,21 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Rishitha and Vinod Sai//Wedding Invitation//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:muhurtham-2026@rishitha-vinod-wedding
+DTSTAMP:20261104T000000Z
+DTSTART:20261202T223000Z
+DTEND:20261202T233000Z
+SUMMARY:Rishitha & Vinod Sai: Wedding muhurtham
+LOCATION:S.R Convention\, Old Thiruchanoor Road\, Near Ankalamma Temple\, Tirupati
+DESCRIPTION:Invitation: https://sridharrenangi.github.io/rishitha-vinod-wedding/
+URL:https://sridharrenangi.github.io/rishitha-vinod-wedding/
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Rishitha & Vinod Sai: Wedding muhurtham
+TRIGGER:-PT12H
+END:VALARM
+END:VEVENT
+END:VCALENDAR
