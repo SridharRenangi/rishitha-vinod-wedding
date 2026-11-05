@@ -10,6 +10,12 @@
 
   Optional sections:
     - photos: image files in assets/photos/gallery/. Empty list = no gallery.
+              They're laid out as a collage on a grid 4 squares wide.
+              "w" and "h" are how many squares wide and tall each photo is;
+              "focus" is the part of the photo to keep in view when it's
+              trimmed to fit. The sizes below fit together into a rectangle
+              (32 squares = 4 wide × 8 tall), so the collage ends flush.
+              If you add or remove a photo, keep the total a multiple of 4.
     - music:  path to an MP3 you have the rights to. null = no background music.
 */
 window.INVITE = {
@@ -26,13 +32,23 @@ window.INVITE = {
     encodeURIComponent("S.R Convention, Old Thiruchanoor Road, Tirupati"),
 
   photos: [
-    { src: "assets/photos/gallery/01.jpg", alt: "Vinod Sai and Rishitha with their foreheads touching" },
-    { src: "assets/photos/gallery/02.jpg", alt: "Their hands holding up the engagement rings against a bright sky" },
-    { src: "assets/photos/gallery/03.jpg", alt: "Rishitha smiling at Vinod Sai" },
-    { src: "assets/photos/gallery/04.jpg", alt: "Vinod Sai placing a ring on Rishitha's open palm" },
-    { src: "assets/photos/gallery/05.jpg", alt: "Vinod Sai kneeling to give Rishitha a bouquet" },
-    { src: "assets/photos/gallery/06.jpg", alt: "Vinod Sai smiling, wearing a rose and jasmine garland" },
-    { src: "assets/photos/gallery/07.jpg", alt: "Rishitha and Vinod Sai, garlanded, in front of the flower backdrop" },
+    // ┌─────────────┬───┐
+    // │ ring 3×2    │ 1×2│   rows 1–2
+    // ├───────┬─────┴───┤
+    // │ 2×3   │ 2×3     │   rows 3–5
+    // ├───────┼─────────┤
+    // │ 2×1   │ 2×1     │   row 6
+    // ├───┬───┴─────────┤
+    // │1×2│ 3×2         │   rows 7–8
+    // └───┴─────────────┘
+    { src: "assets/photos/gallery/08.jpg", w: 3, h: 2, focus: "50% 50%", alt: "Vinod Sai slipping a ring onto Rishitha's finger in front of the flower stage" },
+    { src: "assets/photos/gallery/07.jpg", w: 1, h: 2, focus: "50% 25%", alt: "Rishitha and Vinod Sai, garlanded, in front of the flower backdrop" },
+    { src: "assets/photos/gallery/03.jpg", w: 2, h: 3, focus: "50% 30%", alt: "Rishitha smiling at Vinod Sai" },
+    { src: "assets/photos/gallery/06.jpg", w: 2, h: 3, focus: "50% 30%", alt: "Vinod Sai smiling, wearing a rose and jasmine garland" },
+    { src: "assets/photos/gallery/02.jpg", w: 2, h: 1, focus: "50% 45%", alt: "Their hands holding up the engagement rings against a bright sky" },
+    { src: "assets/photos/gallery/04.jpg", w: 2, h: 1, focus: "50% 50%", alt: "Vinod Sai placing a ring on Rishitha's open palm" },
+    { src: "assets/photos/gallery/05.jpg", w: 1, h: 2, focus: "45% 60%", alt: "Vinod Sai kneeling to give Rishitha a bouquet" },
+    { src: "assets/photos/gallery/01.jpg", w: 3, h: 2, focus: "50% 40%", alt: "Vinod Sai and Rishitha with their foreheads touching" },
   ],
 
   // "Traditional wedding ceremonial vibe with shehnai" by DesiFreeMusic,

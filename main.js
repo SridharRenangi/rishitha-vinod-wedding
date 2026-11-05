@@ -117,10 +117,14 @@
     var section = $(".gallery");
     if (!photos.length) { section.hidden = true; return; }
     section.hidden = false;
-    var list = $(".gallery-grid");
-    list.textContent = "";
+    var grid = $(".gallery-grid");
+    grid.textContent = "";
+    // A collage on a 4-wide grid of squares: each photo spans w × h squares.
     photos.forEach(function (p, i) {
       var li = document.createElement("li");
+      li.style.gridColumn = "span " + (p.w || 2);
+      li.style.gridRow = "span " + (p.h || 2);
+      if (p.focus) li.style.setProperty("--focus", p.focus);
       var btn = document.createElement("button");
       btn.type = "button";
       var img = document.createElement("img");
@@ -131,7 +135,7 @@
       btn.appendChild(img);
       btn.addEventListener("click", function () { openPhoto(i); });
       li.appendChild(btn);
-      list.appendChild(li);
+      grid.appendChild(li);
     });
   }
   function showPhoto(i) {
