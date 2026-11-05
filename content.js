@@ -32,6 +32,7 @@ window.INVITE = {
     { src: "assets/photos/gallery/04.jpg", alt: "Vinod Sai placing a ring on Rishitha's open palm" },
     { src: "assets/photos/gallery/05.jpg", alt: "Vinod Sai kneeling to give Rishitha a bouquet" },
     { src: "assets/photos/gallery/06.jpg", alt: "Vinod Sai smiling, wearing a rose and jasmine garland" },
+    { src: "assets/photos/gallery/07.jpg", alt: "Rishitha and Vinod Sai, garlanded, in front of the flower backdrop" },
   ],
 
   // "Traditional wedding ceremonial vibe with shehnai" by DesiFreeMusic,
@@ -55,7 +56,7 @@ window.INVITE = {
       groomHonorific: "Chi.",
       groomFull: "M. Vinod Sai",
       groomIntro: "B.Tech., MBA (IIM Shillong)\nSenior Manager, JSW",
-      photoAlt: "Rishitha and Vinod Sai, garlanded, standing in front of a flower backdrop",
+      photoAlt: "Rishitha and Vinod Sai, garlanded, holding a bouquet of red roses",
 
       blessingsTitle: "With the blessings of",
       bridesParentsLabel: "Bride's parents",
@@ -126,7 +127,7 @@ window.INVITE = {
       groomHonorific: "చి॥",
       groomFull: "యం. వినోద్ సాయి",
       groomIntro: "B.Tech., MBA (IIM Shillong)\nSr. Manager, JSW",
-      photoAlt: "పూలమాలలతో రిషిత మరియు వినోద్ సాయి",
+      photoAlt: "పూలమాలలతో, ఎర్ర గులాబీల గుత్తితో రిషిత మరియు వినోద్ సాయి",
 
       blessingsTitle: "పెద్దల ఆశీస్సులతో",
       bridesParentsLabel: "వధువు తల్లిదండ్రులు",
