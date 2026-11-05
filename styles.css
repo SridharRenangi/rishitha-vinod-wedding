@@ -557,28 +557,51 @@ html:not(.is-locked) .open-btn { visibility: hidden; }
 .unit-label { color: var(--ink-soft); font-size: clamp(0.7rem, 3vw, 0.85rem); line-height: 1.1; }
 .countdown-done { max-width: 24rem; margin: 0 auto; color: var(--leaf); font-size: var(--step-1); }
 
-/* Gallery: photos keep their own shape, matted and framed */
+/* Gallery: a collage of mixed sizes on a grid of squares, four across.
+   The sizes in content.js fit together into a rectangle, so every edge is flush.
+   The mat and frame are drawn with shadows so they don't change the sizes. */
 .gallery-grid {
+  --gap: 0.85rem;
+  --cell: 4.6rem;                      /* fallback for older browsers */
   list-style: none;
   margin: 0;
-  padding: 0;
-  columns: 2;
-  column-gap: 0.75rem;
+  padding: 5px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: var(--cell);
+  grid-auto-flow: row dense;
+  gap: var(--gap);
 }
-.gallery-grid li { break-inside: avoid; margin-bottom: 0.75rem; }
+/* Square cells: each row is exactly as tall as a column is wide.
+   The section is the size reference (the grid itself has 5px padding each side). */
+.gallery { container-type: inline-size; }
+@supports (width: 1cqi) {
+  .gallery-grid { grid-auto-rows: calc((100cqi - 10px - 3 * var(--gap)) / 4); }
+}
+.gallery-grid li { min-width: 0; min-height: 0; }
 .gallery-grid button {
   display: block;
   width: 100%;
-  padding: 5px;
-  border: 1px solid var(--brass-soft);
-  border-radius: 0.35rem;
-  background: var(--panel);
-  box-shadow: 0 12px 20px -14px rgba(59, 43, 31, 0.6);
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
   cursor: zoom-in;
-  transition: transform 0.25s, box-shadow 0.25s;
+  transition: transform 0.25s;
 }
-.gallery-grid button:hover { transform: translateY(-2px); box-shadow: 0 16px 24px -14px rgba(59, 43, 31, 0.65); }
-.gallery-grid img { width: 100%; border-radius: 0.2rem; }
+.gallery-grid button:hover { transform: translateY(-2px); }
+.gallery-grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: var(--focus, 50% 50%);
+  border-radius: 0.2rem;
+  background: var(--panel);
+  box-shadow:
+    0 0 0 4px var(--panel),
+    0 0 0 5px var(--brass-soft),
+    0 14px 22px -14px rgba(59, 43, 31, 0.6);
+}
 
 .lightbox {
   width: 100vw;
