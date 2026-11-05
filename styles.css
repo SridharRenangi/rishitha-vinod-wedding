@@ -292,7 +292,20 @@ html:not(.is-locked) .open-btn { visibility: hidden; }
     petal-fall var(--d) cubic-bezier(.35, .1, .65, .9) var(--delay) forwards,
     petal-sway calc(var(--d) / 3) ease-in-out var(--delay) infinite alternate;
 }
+/* Continuous petals: each one fades in at the top, drifts down, fades out, and starts again */
+.petal.is-loop {
+  opacity: 0;
+  animation:
+    petal-drift var(--d) linear var(--delay) infinite both,
+    petal-sway calc(var(--d) / 3) ease-in-out var(--delay) infinite alternate;
+}
 @keyframes petal-fall { to { translate: 0 112vh; opacity: 0.75; } }
+@keyframes petal-drift {
+  0% { translate: 0 0; opacity: 0; }
+  6% { opacity: 0.85; }
+  90% { opacity: 0.85; }
+  100% { translate: 0 112vh; opacity: 0; }
+}
 @keyframes petal-sway {
   from { transform: translateX(-16px) rotate(-35deg); }
   to { transform: translateX(16px) rotate(45deg); }

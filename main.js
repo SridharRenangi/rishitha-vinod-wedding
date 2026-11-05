@@ -213,25 +213,44 @@
     }
   });
 
-  /* ---------- Petal shower: marigold, rose and jasmine, once, on opening ---------- */
+  /* ---------- Petals: a shower on opening, then a gentle fall that never stops ---------- */
+  var PETAL_COLORS = ["#E99A2C", "#F2B33D", "#E07A1F", "#B8323A", "#C9474E", "#FBF5EA", "#F6EEDF"];
+
+  function makePetal(i, opts) {
+    var p = document.createElement("span");
+    p.className = opts.loop ? "petal is-loop" : "petal";
+    var d = opts.minDur + Math.random() * opts.spread;
+    p.style.setProperty("--x", (Math.random() * 100).toFixed(1) + "%");
+    p.style.setProperty("--w", (opts.minSize + Math.random() * 6).toFixed(1) + "px");
+    p.style.setProperty("--c", PETAL_COLORS[i % PETAL_COLORS.length]);
+    p.style.setProperty("--d", d.toFixed(2) + "s");
+    p.style.setProperty("--delay", (opts.startAfter + Math.random() * (opts.loop ? d : 2.2)).toFixed(2) + "s");
+    return p;
+  }
+
   function showerPetals() {
     if (reduceMotion) return;
-    var colors = ["#E99A2C", "#F2B33D", "#E07A1F", "#B8323A", "#C9474E", "#FBF5EA", "#F6EEDF"];
-    var box = document.createElement("div");
-    box.className = "petals";
-    box.setAttribute("aria-hidden", "true");
-    for (var i = 0; i < 30; i++) {
-      var p = document.createElement("span");
-      p.className = "petal";
-      p.style.setProperty("--x", (Math.random() * 100).toFixed(1) + "%");
-      p.style.setProperty("--w", (8 + Math.random() * 7).toFixed(1) + "px");
-      p.style.setProperty("--c", colors[i % colors.length]);
-      p.style.setProperty("--d", (5.5 + Math.random() * 3.5).toFixed(2) + "s");
-      p.style.setProperty("--delay", (Math.random() * 2.2).toFixed(2) + "s");
-      box.appendChild(p);
+
+    // 1. The opening shower: a quick, fuller burst that clears itself away.
+    var burst = document.createElement("div");
+    burst.className = "petals";
+    burst.setAttribute("aria-hidden", "true");
+    for (var i = 0; i < 28; i++) {
+      burst.appendChild(makePetal(i, { loop: false, minDur: 5.5, spread: 3.5, minSize: 8, startAfter: 0 }));
     }
-    document.body.appendChild(box);
-    setTimeout(function () { box.remove(); }, 12500);
+    document.body.appendChild(burst);
+    setTimeout(function () { burst.remove(); }, 12500);
+
+    // 2. A lighter fall that keeps going for as long as the invitation is open.
+    //    Fewer petals on phones so the text stays easy to read.
+    var count = window.innerWidth < 640 ? 14 : 24;
+    var drift = document.createElement("div");
+    drift.className = "petals";
+    drift.setAttribute("aria-hidden", "true");
+    for (var j = 0; j < count; j++) {
+      drift.appendChild(makePetal(j, { loop: true, minDur: 9, spread: 6, minSize: 7, startAfter: 2 }));
+    }
+    document.body.appendChild(drift);
   }
 
   /* ---------- Panels settle in as they scroll into view ---------- */
