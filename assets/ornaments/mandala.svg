@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-100 -100 200 200" width="400" height="400">
+  <g opacity=".34">
+  <defs>
+    <path id="p1" d="M0 -93C9 -82 9 -69 0 -59C-9 -69 -9 -82 0 -93Z"/>
+    <path id="p2" d="M0 -58C13 -49 14 -35 0 -25C-14 -35 -13 -49 0 -58Z"/>
+    <path id="p3" d="M0 -24C6 -19 6 -12 0 -8C-6 -12 -6 -19 0 -24Z"/>
+    <circle id="d1" cx="0" cy="-90" r="1.5"/>
+    <circle id="d2" cx="0" cy="-42" r="1.3"/>
+  </defs>
+  <g fill="none" stroke="#B08A45" stroke-width=".7">
+    <circle r="98"/><circle r="95.5"/><circle r="59"/><circle r="63" stroke-dasharray="1.5 3"/><circle r="25"/><circle r="5"/>
+    <use href="#p1" transform="rotate(0.00)"/><use href="#p1" transform="rotate(15.00)"/><use href="#p1" transform="rotate(30.00)"/><use href="#p1" transform="rotate(45.00)"/><use href="#p1" transform="rotate(60.00)"/><use href="#p1" transform="rotate(75.00)"/><use href="#p1" transform="rotate(90.00)"/><use href="#p1" transform="rotate(105.00)"/><use href="#p1" transform="rotate(120.00)"/><use href="#p1" transform="rotate(135.00)"/><use href="#p1" transform="rotate(150.00)"/><use href="#p1" transform="rotate(165.00)"/><use href="#p1" transform="rotate(180.00)"/><use href="#p1" transform="rotate(195.00)"/><use href="#p1" transform="rotate(210.00)"/><use href="#p1" transform="rotate(225.00)"/><use href="#p1" transform="rotate(240.00)"/><use href="#p1" transform="rotate(255.00)"/><use href="#p1" transform="rotate(270.00)"/><use href="#p1" transform="rotate(285.00)"/><use href="#p1" transform="rotate(300.00)"/><use href="#p1" transform="rotate(315.00)"/><use href="#p1" transform="rotate(330.00)"/><use href="#p1" transform="rotate(345.00)"/>
+    <use href="#p2" transform="rotate(15.00)"/><use href="#p2" transform="rotate(45.00)"/><use href="#p2" transform="rotate(75.00)"/><use href="#p2" transform="rotate(105.00)"/><use href="#p2" transform="rotate(135.00)"/><use href="#p2" transform="rotate(165.00)"/><use href="#p2" transform="rotate(195.00)"/><use href="#p2" transform="rotate(225.00)"/><use href="#p2" transform="rotate(255.00)"/><use href="#p2" transform="rotate(285.00)"/><use href="#p2" transform="rotate(315.00)"/><use href="#p2" transform="rotate(345.00)"/>
+    <use href="#p3" transform="rotate(0.00)"/><use href="#p3" transform="rotate(45.00)"/><use href="#p3" transform="rotate(90.00)"/><use href="#p3" transform="rotate(135.00)"/><use href="#p3" transform="rotate(180.00)"/><use href="#p3" transform="rotate(225.00)"/><use href="#p3" transform="rotate(270.00)"/><use href="#p3" transform="rotate(315.00)"/>
+  </g>
+  <g fill="#B08A45">
+    <use href="#d1" transform="rotate(7.50)"/><use href="#d1" transform="rotate(22.50)"/><use href="#d1" transform="rotate(37.50)"/><use href="#d1" transform="rotate(52.50)"/><use href="#d1" transform="rotate(67.50)"/><use href="#d1" transform="rotate(82.50)"/><use href="#d1" transform="rotate(97.50)"/><use href="#d1" transform="rotate(112.50)"/><use href="#d1" transform="rotate(127.50)"/><use href="#d1" transform="rotate(142.50)"/><use href="#d1" transform="rotate(157.50)"/><use href="#d1" transform="rotate(172.50)"/><use href="#d1" transform="rotate(187.50)"/><use href="#d1" transform="rotate(202.50)"/><use href="#d1" transform="rotate(217.50)"/><use href="#d1" transform="rotate(232.50)"/><use href="#d1" transform="rotate(247.50)"/><use href="#d1" transform="rotate(262.50)"/><use href="#d1" transform="rotate(277.50)"/><use href="#d1" transform="rotate(292.50)"/><use href="#d1" transform="rotate(307.50)"/><use href="#d1" transform="rotate(322.50)"/><use href="#d1" transform="rotate(337.50)"/><use href="#d1" transform="rotate(352.50)"/>
+    <use href="#d2" transform="rotate(0.00)"/><use href="#d2" transform="rotate(30.00)"/><use href="#d2" transform="rotate(60.00)"/><use href="#d2" transform="rotate(90.00)"/><use href="#d2" transform="rotate(120.00)"/><use href="#d2" transform="rotate(150.00)"/><use href="#d2" transform="rotate(180.00)"/><use href="#d2" transform="rotate(210.00)"/><use href="#d2" transform="rotate(240.00)"/><use href="#d2" transform="rotate(270.00)"/><use href="#d2" transform="rotate(300.00)"/><use href="#d2" transform="rotate(330.00)"/>
+    <circle r="2"/>
+  </g>
+  </g>
+</svg>
