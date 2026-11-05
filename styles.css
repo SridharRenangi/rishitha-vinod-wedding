@@ -62,11 +62,29 @@ button { font: inherit; color: inherit; }
 }
 
 /* Names in burnished gold-brown, like foil on a printed card */
-.names .name, .person-name, .venue-name {
+.venue-name {
   background: var(--gold-text);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+}
+/* The couple's names also catch the light: a slow band of shine sweeps across */
+.names .name, .person-name {
+  background-image:
+    linear-gradient(105deg, transparent 42%, rgba(255, 238, 196, 0.95) 50%, transparent 58%),
+    var(--gold-text);
+  background-size: 250% 100%, 100% 100%;
+  background-repeat: no-repeat;
+  background-position: 160% 0, 0 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 6.5s ease-in-out 1.2s infinite;
+}
+.names .name:last-child, .person + .amp-large + .person .person-name { animation-delay: 1.6s; }
+@keyframes shimmer {
+  0% { background-position: 160% 0, 0 0; }
+  38%, 100% { background-position: -60% 0, 0 0; }
 }
 
 /* Placeholders still to be filled in content.js */
@@ -142,16 +160,30 @@ button { font: inherit; color: inherit; }
   opacity: 0.85;
 }
 
-.cover-leaves {
+/* Banana plant sways in a light breeze; the jasmine garland swings from its knot */
+.cover-plant {
   position: absolute;
   top: 0;
   left: 0;
   height: 42svh;
-  width: auto;
-  max-width: none;
+  aspect-ratio: 408 / 1020;
   z-index: 1;
   transform-origin: 0 0;
+  animation: leaf-sway 7s ease-in-out infinite alternate;
 }
+.cover-leaves { position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; }
+.cover-garland {
+  position: absolute;
+  left: 0;
+  top: 54.706%;          /* 558 / 1020: where the garland hangs from the knot */
+  width: 24.02%;         /* 98 / 408 */
+  height: auto;
+  max-width: none;
+  transform-origin: 34% 0;
+  animation: garland-swing 4.6s ease-in-out infinite alternate;
+}
+@keyframes leaf-sway { from { rotate: -0.8deg; } to { rotate: 1.3deg; } }
+@keyframes garland-swing { from { rotate: 2.6deg; } to { rotate: -2.6deg; } }
 
 .cover-text {
   position: absolute;
@@ -344,10 +376,27 @@ html:not(.is-locked) .open-btn { visibility: hidden; }
   box-shadow: var(--card-shadow);
 }
 
-/* The invitation itself: an arched temple doorway */
+/* Kolam corners: dots and a weaving line, top-left and bottom-right of each card */
+.blessings::before, .event::before, .venue::before,
+.blessings::after, .event::after, .venue::after {
+  content: "";
+  position: absolute;
+  width: 46px;
+  height: 46px;
+  background: url("assets/ornaments/kolam-corner.svg") center / contain no-repeat;
+  opacity: 0.6;
+  pointer-events: none;
+}
+.blessings::before, .event::before, .venue::before { top: 0; left: 0; }
+.blessings::after, .event::after, .venue::after { right: 0; bottom: 0; rotate: 180deg; }
+
+/* The invitation itself: an arched temple doorway, with a faint mandala in the arch */
 .invite {
   position: relative;
-  background: var(--paper-grain), var(--panel);
+  background:
+    url("assets/ornaments/mandala.svg") center 1rem / min(22rem, 92%) auto no-repeat,
+    var(--paper-grain),
+    var(--panel);
   border: 1px solid var(--brass);
   border-radius: 999px 999px 0.6rem 0.6rem;
   outline: 1px solid var(--brass-soft);
@@ -477,6 +526,7 @@ html:not(.is-locked) .open-btn { visibility: hidden; }
   padding: 2.25rem 0.75rem 2.5rem;
   border-block: 1px solid var(--brass-soft);
   background:
+    url("assets/ornaments/rangoli.svg") center bottom -5.25rem / 20rem auto no-repeat,
     radial-gradient(circle, rgba(176, 138, 69, 0.32) 1.1px, transparent 1.6px) 0 0 / 16px 16px,
     radial-gradient(circle, rgba(176, 138, 69, 0.18) 1.1px, transparent 1.6px) 8px 8px / 16px 16px;
 }
@@ -599,6 +649,53 @@ html:not(.is-locked) .open-btn { visibility: hidden; }
 .closing-line { color: var(--leaf); font-size: var(--step-2); line-height: 1.35; font-style: italic; }
 :lang(te) .closing-line { font-style: normal; font-size: var(--step-1); }
 .signoff { margin-top: 1rem; color: var(--kumkum); }
+
+/* A row of lit clay diyas with flickering flames */
+.diyas {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: clamp(0.5rem, 2.8vw, 1.1rem);
+  margin-top: 2.25rem;
+  padding-top: 1.5rem;
+  isolation: isolate;
+}
+.diyas::before {
+  content: "";
+  position: absolute;
+  inset: -0.5rem 4% 0.25rem;
+  z-index: -1;
+  background: radial-gradient(closest-side, rgba(var(--flame), 0.3), rgba(var(--flame), 0));
+}
+.diya {
+  position: relative;
+  width: clamp(2.3rem, 10vw, 3rem);
+  aspect-ratio: 48 / 28;
+  background: url("assets/ornaments/diya.svg") center / contain no-repeat;
+}
+.diya::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 52%;
+  width: 28%;
+  aspect-ratio: 0.62;
+  translate: -50% 0;
+  border-radius: 50% 50% 50% 50% / 62% 62% 38% 38%;
+  background: radial-gradient(circle at 50% 72%, #FFF8D6 0%, #FFD45C 32%, #FF9A2A 68%, rgba(255, 120, 30, 0) 100%);
+  box-shadow: 0 0 10px 3px rgba(255, 190, 80, 0.55), 0 0 24px 9px rgba(255, 170, 60, 0.22);
+  transform-origin: 50% 100%;
+  animation: diya-flicker 1.6s ease-in-out infinite alternate;
+}
+.diya:nth-child(2n)::before { animation-duration: 1.9s; animation-delay: -0.4s; }
+.diya:nth-child(3n)::before { animation-duration: 1.3s; animation-delay: -0.8s; }
+@keyframes diya-flicker {
+  0% { scale: 1 1; rotate: -2deg; opacity: 0.95; }
+  50% { scale: 0.92 1.08; rotate: 2deg; opacity: 1; }
+  100% { scale: 1.04 0.94; rotate: -1deg; opacity: 0.9; }
+}
+@media (max-width: 26rem) { .diya:nth-child(n + 6) { display: none; } }
 .closing-nandi { width: min(62%, 15rem); margin: 2.5rem 0 0 auto; translate: var(--gutter) 0; }
 
 /* Music button */
@@ -649,7 +746,7 @@ html:not(.is-locked) .open-btn { visibility: hidden; }
 
 @media (min-aspect-ratio: 4/5) {
   /* Landscape: lay the cover out like the printed card, art at the edges */
-  .cover-leaves { height: 66svh; }
+  .cover-plant { height: 66svh; }
   .cover-text { align-content: center; padding-top: 0; padding-bottom: 8svh; }
   .ganesha, .cover .invocation { margin-left: 0; }
   .cover .invocation { max-width: none; }
